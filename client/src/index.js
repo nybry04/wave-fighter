@@ -1,11 +1,11 @@
 import * as PIXI from 'pixi.js'
 import Player from "./object/player";
-import Hog from "./object/hog";
 import {Viewport} from "pixi-viewport";
 import Background from "./object/background";
 import HeroSkills from "./object/heroskills";
 import HeroBar from "./object/herobar";
 import WaveController from "./object/wavecontroller";
+import MusicManager from "./object/musicmanager";
 
 if(window.localStorage.getItem('state') !== 'startgame') {
     window.location.href = '/startgame.html'
@@ -27,7 +27,8 @@ window.game = {
     viewport: undefined,
     background: undefined,
     heroskills: undefined,
-    herobar: undefined
+    herobar: undefined,
+    musicmanager: undefined
 }
 
 app.loader
@@ -60,6 +61,10 @@ app.loader
     .load(loadComplete)
 
 function loadComplete() {
+    game.musicmanager = new MusicManager()
+
+    game.musicmanager.add('background', 'sound/background.mp3', true, true)
+
     game.viewport = new Viewport({
         screenWidth: window.innerWidth,
         screenHeight: window.innerHeight,

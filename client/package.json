@@ -22,6 +22,7 @@
   "dependencies": {
     "@pixi/math": "^6.5.5",
     "@pixi/math-extras": "^6.5.5",
+    "howler": "^2.2.3",
     "pixi-viewport": "^4.35.1",
     "pixi.js": "^6.5.5",
     "uuid": "^9.0.0"

@@ -1,5 +1,5 @@
 client/.idea
-client/bundle.js
+client/dist/bundle.js
 client/node_modules
 
 server/.idea

@@ -10,7 +10,8 @@ class Player extends Entity {
                 damage: 10,
                 damageFrame: 3,
                 skillAnimation: 'attack0_animation',
-                nextSkillUsage: 0
+                nextSkillUsage: 0,
+                sound: 'player_attack0'
             },
             attack1: {
                 name: 'attack1',
@@ -18,7 +19,8 @@ class Player extends Entity {
                 damage: 40,
                 damageFrame: 11,
                 skillAnimation: 'attack1_animation',
-                nextSkillUsage: 0
+                nextSkillUsage: 0,
+                sound: 'player_attack1'
             },
             block: {
                 name: 'block',
@@ -93,6 +95,9 @@ class Player extends Entity {
 
         this.setArea('attack_right', this.position.x, 60, this.position.y, 0, 300, 154, 0x00FF00)
         this.setArea('attack_left', this.position.x, -340, this.position.y, 0, 300, 154, 0x00FF00)
+
+        game.musicmanager.add('player_attack0', 'sound/sword0.wav')
+        game.musicmanager.add('player_attack1', 'sound/sword1.mp3')
     }
 
     getSpriteList() {
@@ -119,10 +124,13 @@ class Player extends Entity {
 
     attack(skill) {
         if(this.skill[skill.name].nextSkillUsage - Date.now() > 0) return
+
+
         let options = {
             onFrameChange: (currentFrame) => {
                 if(currentFrame === skill.damageFrame) {
                     this.skill[skill.name].nextSkillUsage = Date.now() + this.skill[skill.name].cooldown
+                    game.musicmanager.play(skill.sound)
                     let attackSide = game.hero.invert ?
                         game.hero.getArea('attack_left') : game.hero.getArea('attack_right')
 
