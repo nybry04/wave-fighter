@@ -1,0 +1,6 @@
+client/.idea
+client/bundle.js
+client/node_modules
+
+server/.idea
+server/node_modules

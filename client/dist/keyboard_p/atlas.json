@@ -1,0 +1,31 @@
+{"frames": {
+
+"keyboard_p-0.png":
+{
+	"frame": {"x":1,"y":1,"w":16,"h":15},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":15},
+	"sourceSize": {"w":16,"h":15}
+},
+"keyboard_p-1.png":
+{
+	"frame": {"x":1,"y":18,"w":16,"h":14},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":1,"w":16,"h":14},
+	"sourceSize": {"w":16,"h":15}
+}},
+"animations": {
+	"keyboard_p": ["keyboard_p-0.png","keyboard_p-1.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "atlas.png",
+	"format": "RGBA8888",
+	"size": {"w":18,"h":33},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:01de8c1dacc8b0cf519daf5e2837e5ad:bd3e58b628880678f6a228a85d03595e:cbce6b53f0f49e0bf15173c25c41f876$"
+}
+}

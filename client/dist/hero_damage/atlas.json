@@ -1,0 +1,55 @@
+{"frames": {
+
+"hero_damage-0.png":
+{
+	"frame": {"x":1,"y":112,"w":65,"h":43},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":11,"w":65,"h":43},
+	"sourceSize": {"w":78,"h":54}
+},
+"hero_damage-1.png":
+{
+	"frame": {"x":76,"y":1,"w":67,"h":44},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":10,"w":67,"h":44},
+	"sourceSize": {"w":78,"h":54}
+},
+"hero_damage-2.png":
+{
+	"frame": {"x":70,"y":70,"w":71,"h":47},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":7,"w":71,"h":47},
+	"sourceSize": {"w":78,"h":54}
+},
+"hero_damage-3.png":
+{
+	"frame": {"x":1,"y":1,"w":73,"h":53},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":5,"y":1,"w":73,"h":53},
+	"sourceSize": {"w":78,"h":54}
+},
+"hero_damage-4.png":
+{
+	"frame": {"x":1,"y":56,"w":67,"h":54},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":9,"y":0,"w":67,"h":54},
+	"sourceSize": {"w":78,"h":54}
+}},
+"animations": {
+	"hero_damage": ["hero_damage-0.png","hero_damage-1.png","hero_damage-2.png","hero_damage-3.png","hero_damage-4.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "atlas.png",
+	"format": "RGBA8888",
+	"size": {"w":121,"h":156},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:6ac49e5f4465822e514e62921a8f8308:fac31aee38c70a9c1e8489e117da264f:cbce6b53f0f49e0bf15173c25c41f876$"
+}
+}

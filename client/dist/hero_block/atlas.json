@@ -1,0 +1,39 @@
+{"frames": {
+
+"hero_block-0.png":
+{
+	"frame": {"x":1,"y":1,"w":61,"h":45},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":45},
+	"sourceSize": {"w":61,"h":45}
+},
+"hero_block-1.png":
+{
+	"frame": {"x":104,"y":1,"w":40,"h":44},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":20,"y":1,"w":40,"h":44},
+	"sourceSize": {"w":61,"h":45}
+},
+"hero_block-2.png":
+{
+	"frame": {"x":64,"y":1,"w":38,"h":45},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":23,"y":0,"w":38,"h":45},
+	"sourceSize": {"w":61,"h":45}
+}},
+"animations": {
+	"hero_block": ["hero_block-0.png","hero_block-1.png","hero_block-2.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "atlas.png",
+	"format": "RGBA8888",
+	"size": {"w":145,"h":47},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:6e364427beef630a3d664f3718513729:3dda711c2e53f0a4b6bf4d6c2049968c:cbce6b53f0f49e0bf15173c25c41f876$"
+}
+}

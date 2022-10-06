@@ -1,0 +1,18 @@
+FROM node:16
+
+WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm install
+COPY . .
+
+EXPOSE ${SERVER_PORT:-8081}
+
+ENV SERVER_PORT ${SERVER_PORT:-8081}
+ENV SERVER_HOST ${SERVER_HOST:-0.0.0.0}
+ENV MYSQL_PORT ${MYSQL_PORT:-3306}
+ENV MYSQL_HOST ${MYSQL_HOST:-0.0.0.0}
+ENV MYSQL_USER ${MYSQL_USER:-wave-fighter}
+ENV MYSQL_PASSWORD ${MYSQL_PASSWORD:-wave-fighter-password}
+ENV MYSQL_DATABASE ${MYSQL_DATABASE:-wave-fighter}
+
+CMD ["npm", "start"]

@@ -1,0 +1,60 @@
+version: '3.1'
+
+services:
+    client-build:
+        image: nybry/wave-fighter-client-build
+        build: ./client
+        volumes:
+            - client-volume:/usr/src/app
+        
+    client-run:
+        image: nginx:1.23.1
+        restart: always
+        volumes:
+            - client-volume:/usr/share/nginx/html:ro
+            - ./nginx.conf:/etc/nginx/nginx.conf:ro
+        
+        ports:
+            - 80:80
+            
+        depends_on:
+            - client-build
+            - server
+    server:
+        image: nybry/wave-fighter-server
+        build: ./server
+        restart: always
+        environment:
+            SERVER_HOST: 0.0.0.0
+            SERVER_PORT: 8081
+            MYSQL_HOST: mariadb
+            MYSQL_PORT: 3306
+        
+        depends_on: 
+            - mariadb
+            
+        links:
+            - mariadb
+            
+        ports:
+            - 8081:8081
+        
+    mariadb:
+        image: mariadb:10.6
+        restart: always
+        environment:
+            MARIADB_ROOT_PASSWORD: root-password
+            MARIADB_HOST: 0.0.0.0
+            MARIADB_USER: wave-fighter
+            MARIADB_PASSWORD: wave-fighter-password
+            MARIADB_DATABASE: wave-fighter
+            
+        volumes:
+            - mariadb-volume:/var/lib/mysql
+            
+        ports:
+            - 3306:3306
+
+volumes:
+    client-volume:
+    mariadb-volume:

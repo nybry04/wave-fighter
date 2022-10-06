@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@forevolve/bootstrap-dark@2.1.1/dist/css/bootstrap-dark.min.css" />
+    </head>
+    <body>
+        <script src="redirect.js"></script>
+        <script>
+            window.localStorage.removeItem('state')
+
+            function restart() {
+                window.localStorage.setItem('state', 'startgame')
+                window.location.href = '/index.html'
+            }
+
+            function publish() {
+                let apiServer = window.location.origin + '/api'
+
+                fetch(apiServer + '/publish', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        login: window.localStorage.getItem('login'),
+                        wavelevel: parseInt(window.localStorage.getItem('wavelevel')),
+                        level: parseInt(window.localStorage.getItem('level')),
+                        time: parseInt(window.localStorage.getItem('time'))
+                    })
+                }).then(async (res) => {
+                    let json = await res.json()
+
+                    if(json.success) {
+                        let alert = document.createElement('div')
+                        alert.className = 'alert alert-success'
+                        alert.setAttribute('role', 'alert')
+                        alert.innerText = json.message
+                        document.getElementById('alert-container').appendChild(alert)
+                    }else {
+                        let alert = document.createElement('div')
+                        alert.className = 'alert alert-danger'
+                        alert.setAttribute('role', 'alert')
+                        alert.innerText = json.message
+                        document.getElementById('alert-container').appendChild(alert)
+                    }
+                })
+            }
+        </script>
+        <div class="mx-auto mt-4" style="max-width: 50vw">
+            <div class="text-center fs-1 mb-3">Игра закончена</div>
+            <div id="alert-container">
+            </div>
+            <button type="button" class="btn btn-success mt-1 w-100" onclick="restart()">Попробовать еще раз</button>
+            <button type="button" class="btn btn-secondary mt-1 w-100" onclick="publish()">Опубликовать результат</button>
+
+            <iframe src="topframe.html" class="w-100 mt-3" style="height: 500px">
+                Не удалось загрузить топ игроков
+            </iframe>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    </body>
+</html>

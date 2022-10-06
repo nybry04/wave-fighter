@@ -1,0 +1,29 @@
+{
+  "name": "pixigame",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "private": true,
+  "scripts": {
+    "build": "webpack",
+    "dev-server": "webpack-dev-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.19.3",
+    "@babel/preset-env": "^7.19.3",
+    "babel-loader": "^8.2.5",
+    "serve": "^14.0.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1"
+  },
+  "dependencies": {
+    "@pixi/math": "^6.5.5",
+    "@pixi/math-extras": "^6.5.5",
+    "pixi-viewport": "^4.35.1",
+    "pixi.js": "^6.5.5",
+    "uuid": "^9.0.0"
+  }
+}
